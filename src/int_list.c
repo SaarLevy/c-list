@@ -36,7 +36,16 @@ void list_set_element(int_list *list, int index, int value) {
     list->elements[index] = value;
 }
 
-void remove_element_from_list(int_list *list, int index) {
+//Removes an element from list at a given index
+//TODO: Is there a problem with memory here?
+void list_remove_element(int_list *list, int index) {
+    list->length--;
+    list = realloc(list, sizeof(int_list));
+
+   // int last_element = list->elements[list->length-1]
+    for (int i=index; i<list->length; i++) {
+        list->elements[i] = list->elements[i+1]; //Seems like it should have an out of bounds error
+    }
 
 }
 
