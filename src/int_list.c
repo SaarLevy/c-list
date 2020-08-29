@@ -13,6 +13,7 @@ int_list *create_list(int initial_size) {
     return list;
 }
 
+//Inserts an element in *list at int index equals to int value
 void insert_to_list(int_list *list, int index, int value) {
     list->length++;
     list = realloc(list, sizeof(int_list));
