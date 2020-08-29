@@ -5,7 +5,7 @@
 #include "int_list.h"
 
 //Creates an int_list with the size of "initial_size" with all elements equal to 0
-int_list *create_list(int initial_size) {
+int_list *list_create(int initial_size) {
 
     int_list *list = malloc(sizeof(int_list));
     list->elements = calloc(initial_size, sizeof(int));
@@ -14,7 +14,7 @@ int_list *create_list(int initial_size) {
 }
 
 //Inserts an element in *list at int index equals to int value
-void insert_to_list(int_list *list, int index, int value) {
+void list_insert(int_list *list, int index, int value) {
     list->length++;
     list = realloc(list, sizeof(int_list));
     // list->elements = realloc(list, sizeof(int)*list->length); Why is this not needed?????
@@ -27,17 +27,21 @@ void insert_to_list(int_list *list, int index, int value) {
 }
 
 //Adds an element at the end of *list with the value of value
-void append_to_list(int_list *list, int value) {
-    insert_to_list(list, list->length, value);
+void list_append(int_list *list, int value) {
+    list_insert(list, list->length, value);
 }
 
 //Sets an element in *list[index] to a specific value
-void set_list_item(int_list *list, int index, int value) {
+void list_set_element(int_list *list, int index, int value) {
     list->elements[index] = value;
 }
 
+void remove_element_from_list(int_list *list, int index) {
+
+}
+
 //Prints list in format of [<element1>, <element2>, <element3>...]
-void print_list(int_list *list) {
+void list_print(int_list *list) {
     printf("Length: %d\n", list->length);
     printf("Elements: [");
     for (int i=0; i < list->length; i++) {
