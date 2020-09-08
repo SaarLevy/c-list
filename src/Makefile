@@ -1,7 +1,7 @@
 OBJS	= main.o arraylist.o
 SOURCE	= main.c arraylist.c
 HEADER	= arraylist.h
-OUT	= prog.out
+OUT	= program.out
 CC 	= gcc
 FLAGS	 = -g3 -c -Wall
 LFLAGS	 = 
@@ -26,7 +26,7 @@ rc:
 	make run && make clean
 
 debug: $(OUT)
-	valgrind $(OUT)
+	gdb $(OUT)
 
 valgrind: $(OUT)
 	valgrind $(OUT)
