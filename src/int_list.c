@@ -13,15 +13,19 @@ int_list *list_create(int initial_size) {
     return list;
 }
 
+//Helper macro to shift array elements
+#define list_memshift(s, offset, length) memmove((s) + (offset), (s), (length)* sizeof(s));
+
 //Inserts an element in *list at int index equals to int value
 void list_insert(int_list *list, int index, int value) {
     list->length++;
     list = realloc(list, sizeof(int_list));
-    // list->elements = realloc(list, sizeof(int)*list->length); Why is this not needed?????
+    //list->elements = realloc(list, sizeof(int)*list->length); //Why is this not needed?????
 
     for(int i=list->length; i>index; i--) {
         list->elements[i] = list->elements[i-1];
     }
+    list_memshift(list->elements + index, 1, list->length - index);
     list->elements[index] = value;
 
 }

@@ -2,7 +2,7 @@ OBJS	= main.o int_list.o
 SOURCE	= main.c int_list.c
 HEADER	= int_list.h
 OUT	= prog.out
-CC	 = gcc
+CC 	= gcc
 FLAGS	 = -g3 -c -Wall
 LFLAGS	 = 
 
@@ -36,3 +36,4 @@ valgrind_leakcheck: $(OUT)
 
 valgrind_extreme: $(OUT)
 	valgrind --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --vgdb=yes $(OUT)
+
