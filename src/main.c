@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "int_list.h"
+#include "arraylist.h"
 
 
 int main() {
 
-    int_list *list = list_create(10);
+    arraylist *list = list_create(10);
     for(int i=0; i < list->length; i++) {
         list->elements[i] =i;
     }

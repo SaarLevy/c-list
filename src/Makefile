@@ -1,6 +1,6 @@
-OBJS	= main.o int_list.o
-SOURCE	= main.c int_list.c
-HEADER	= int_list.h
+OBJS	= main.o arraylist.o
+SOURCE	= main.c arraylist.c
+HEADER	= arraylist.h
 OUT	= prog.out
 CC 	= gcc
 FLAGS	 = -g3 -c -Wall
@@ -12,8 +12,8 @@ all: $(OBJS)
 main.o: main.c
 	$(CC) $(FLAGS) main.c 
 
-int_list.o: int_list.c
-	$(CC) $(FLAGS) int_list.c 
+arraylist.o: arraylist.c
+	$(CC) $(FLAGS) arraylist.c 
 
 
 clean:
