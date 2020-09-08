@@ -43,14 +43,14 @@ void list_set_element(int_list *list, int index, int value) {
 //Removes an element from list at a given index
 //TODO: Is there a problem with memory here?
 void list_remove_element(int_list *list, int index) {
-    list->length--;
-    list = realloc(list, sizeof(int_list));
+//     list->length--;
+//     list = realloc(list, sizeof(int_list));
 
-   // int last_element = list->elements[list->length-1]
-    for (int i=index; i<list->length; i++) {
-        list->elements[i] = list->elements[i+1]; //Seems like it should have an out of bounds error
-    }
-
+//    // int last_element = list->elements[list->length-1]
+//     for (int i=index; i<list->length; i++) {
+//         list->elements[i] = list->elements[i+1]; //Seems like it should have an out of bounds error
+    list_memshift(list->elements + index + 1, -1, list->length - index);
+	list->length--;
 }
 
 //Prints list in format of [<element1>, <element2>, <element3>...]

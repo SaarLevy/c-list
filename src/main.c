@@ -15,5 +15,11 @@ int main() {
     list_append(list, 50);
     list_print(list);
 
+    list_remove_element(list, list->length-1);
+    list_print(list);
+
+    list_remove_element(list, 4);
+    list_print(list);
+
     return 0;
 }
